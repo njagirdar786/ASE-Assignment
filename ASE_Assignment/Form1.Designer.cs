@@ -32,6 +32,8 @@
             this.multiTextBox = new System.Windows.Forms.TextBox();
             this.submitBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.openBtn = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,10 +46,10 @@
             // 
             // multiTextBox
             // 
-            this.multiTextBox.Location = new System.Drawing.Point(12, 30);
+            this.multiTextBox.Location = new System.Drawing.Point(12, 52);
             this.multiTextBox.Multiline = true;
             this.multiTextBox.Name = "multiTextBox";
-            this.multiTextBox.Size = new System.Drawing.Size(295, 294);
+            this.multiTextBox.Size = new System.Drawing.Size(295, 272);
             this.multiTextBox.TabIndex = 1;
             // 
             // submitBtn
@@ -63,17 +65,37 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox1.Location = new System.Drawing.Point(357, 30);
+            this.pictureBox1.Location = new System.Drawing.Point(357, 52);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(315, 375);
+            this.pictureBox1.Size = new System.Drawing.Size(315, 353);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            // 
+            // openBtn
+            // 
+            this.openBtn.Location = new System.Drawing.Point(12, 12);
+            this.openBtn.Name = "openBtn";
+            this.openBtn.Size = new System.Drawing.Size(75, 23);
+            this.openBtn.TabIndex = 4;
+            this.openBtn.Text = "Open";
+            this.openBtn.UseVisualStyleBackColor = true;
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Location = new System.Drawing.Point(93, 12);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveBtn.TabIndex = 5;
+            this.saveBtn.Text = "Save";
+            this.saveBtn.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 436);
+            this.Controls.Add(this.saveBtn);
+            this.Controls.Add(this.openBtn);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.multiTextBox);
@@ -92,6 +114,8 @@
         private System.Windows.Forms.TextBox multiTextBox;
         private System.Windows.Forms.Button submitBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button openBtn;
+        private System.Windows.Forms.Button saveBtn;
     }
 }
 
