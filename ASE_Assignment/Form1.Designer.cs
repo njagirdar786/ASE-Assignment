@@ -60,6 +60,7 @@
             this.submitBtn.TabIndex = 2;
             this.submitBtn.Text = "Submit";
             this.submitBtn.UseVisualStyleBackColor = true;
+            this.submitBtn.Click += new System.EventHandler(this.submitBtn_Click);
             // 
             // pictureBox1
             // 
@@ -70,6 +71,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(315, 393);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // openBtn
             // 

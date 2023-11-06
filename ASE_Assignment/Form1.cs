@@ -16,5 +16,20 @@ namespace ASE_Assignment
         {
             InitializeComponent();
         }
+
+        private void submitBtn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            Shape circle1 = new Circle(Color.Red, 10, 10, 10);
+
+            circle1.draw(g);
+
+        }
     }
 }
