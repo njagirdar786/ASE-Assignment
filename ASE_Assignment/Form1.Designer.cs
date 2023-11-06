@@ -56,7 +56,7 @@
             // 
             this.submitBtn.Location = new System.Drawing.Point(12, 382);
             this.submitBtn.Name = "submitBtn";
-            this.submitBtn.Size = new System.Drawing.Size(75, 23);
+            this.submitBtn.Size = new System.Drawing.Size(295, 23);
             this.submitBtn.TabIndex = 2;
             this.submitBtn.Text = "Submit";
             this.submitBtn.UseVisualStyleBackColor = true;
@@ -65,9 +65,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox1.Location = new System.Drawing.Point(357, 52);
+            this.pictureBox1.Location = new System.Drawing.Point(357, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(315, 353);
+            this.pictureBox1.Size = new System.Drawing.Size(315, 393);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -75,16 +75,16 @@
             // 
             this.openBtn.Location = new System.Drawing.Point(12, 12);
             this.openBtn.Name = "openBtn";
-            this.openBtn.Size = new System.Drawing.Size(75, 23);
+            this.openBtn.Size = new System.Drawing.Size(139, 23);
             this.openBtn.TabIndex = 4;
             this.openBtn.Text = "Open";
             this.openBtn.UseVisualStyleBackColor = true;
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(93, 12);
+            this.saveBtn.Location = new System.Drawing.Point(167, 12);
             this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveBtn.Size = new System.Drawing.Size(140, 23);
             this.saveBtn.TabIndex = 5;
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = true;
