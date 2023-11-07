@@ -13,14 +13,11 @@ namespace ASE_Assignment
         private Bitmap myBitmap;
         private Graphics g;
         private Point p;
-        private Pen pen;
 
-        public Canvass(Pen pen,int width, int height)
+        public Canvass(int width, int height)
         {
             myBitmap = new Bitmap(width, height);
             g = Graphics.FromImage(myBitmap);
-            this.pen = pen;
-            
 
         }
 
@@ -39,7 +36,7 @@ namespace ASE_Assignment
             p = new Point(x, y);
         }
 
-        public void DrawLine(int x, int y)
+        public void DrawLine(Pen pen, int x, int y)
         {
             g.DrawLine(pen, p.X, p.Y, x, y);
         }

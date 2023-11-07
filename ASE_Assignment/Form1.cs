@@ -19,7 +19,7 @@ namespace ASE_Assignment
         public Form1()
         {
             InitializeComponent();
-            canvas = new Canvass(pen, 313, 393);
+            canvas = new Canvass(313, 393);
             pen = new Pen(Color.Black, 2);
 
         }

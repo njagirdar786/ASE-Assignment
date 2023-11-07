@@ -30,7 +30,7 @@ namespace ASE_Assignment
             {
                 int x = Int32.Parse(commandParts[1]);
                 int y = Int32.Parse(commandParts[2]);
-                canvas.DrawLine(x, y);
+                canvas.DrawLine(pen ,x, y);
 
             }
 
