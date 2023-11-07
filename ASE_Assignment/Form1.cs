@@ -31,6 +31,7 @@ namespace ASE_Assignment
             CommandParser cp = new CommandParser(command, canvas, pen);
             Bitmap myBitmap = canvas.GetBitmap();
             pictureBox1.Image = myBitmap;
+            singleTextBox.Clear();
         }
     }
 }

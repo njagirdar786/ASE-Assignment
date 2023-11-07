@@ -14,11 +14,21 @@ namespace ASE_Assignment
 
             string[] commandParts = command.Split(' ');
 
-            if (commandParts[0] == "circle" && int.TryParse(commandParts[1], out int radius))
+            if (commandParts[0] == "circle")
             {
+                int radius = Int32.Parse(commandParts[1]);
                 Shape circle = new Circle(pen.Color, 10, 10, radius);
                 canvas.DrawShape(circle);
             }
+            else if (commandParts[0] == "moveTo")
+            {
+                int x = Int32.Parse(commandParts[1]);
+                int y = Int32.Parse(commandParts[2]);
+                canvas.MoveTo(x, y);
+
+            }
+
+
 
         }
     }

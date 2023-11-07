@@ -16,10 +16,10 @@ namespace ASE_Assignment
             this.radius = radius;
         }
 
-        public override void draw(Graphics g)
+        public override void draw(Graphics g, Point point)
         {
             Pen p = new Pen(colour, 2);
-            g.DrawEllipse(p, x, y, radius * 2, radius * 2);
+            g.DrawEllipse(p, point.X, point.Y, radius * 2, radius * 2);
         }
     }
 }

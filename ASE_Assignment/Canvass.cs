@@ -12,6 +12,7 @@ namespace ASE_Assignment
 
         private Bitmap myBitmap;
         private Graphics g;
+        private Point p;
 
         public Canvass(int width, int height)
         {
@@ -22,7 +23,7 @@ namespace ASE_Assignment
 
         public void DrawShape(Shape shape)
         {
-            shape.draw(g);
+            shape.draw(g, p);
         }
 
         public Bitmap GetBitmap()
@@ -30,5 +31,9 @@ namespace ASE_Assignment
             return myBitmap;
         }
 
+        public void MoveTo(int x, int y)
+        {
+            p = new Point(x, y);
+        }
     }
 }
