@@ -12,27 +12,25 @@ namespace ASE_Assignment
 {
     public partial class Form1 : Form
     {
-        Bitmap myBitmap;
+        Pen pen;
+        String command;
+        Canvass canvas;
 
         public Form1()
         {
             InitializeComponent();
 
-            myBitmap = new Bitmap(315, 393);
+            canvas = new Canvass(313, 393);
+            pen = new Pen(Color.Black, 2);
 
         }
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
-
-            Graphics g = Graphics.FromImage(myBitmap);
-
-            Shape circle1 = new Circle(Color.Red, 10, 10, 100);
-
-            circle1.draw(g);
-
+            command = singleTextBox.Text;
+            CommandParser cp = new CommandParser(command, canvas, pen);
+            Bitmap myBitmap = canvas.GetBitmap();
             pictureBox1.Image = myBitmap;
-
         }
     }
 }
