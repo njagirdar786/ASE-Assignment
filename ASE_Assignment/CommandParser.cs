@@ -36,6 +36,10 @@ namespace ASE_Assignment
             {
                 canvas.Clear();
             }
+            else if (commandParts[0] == "reset")
+            {
+                canvas.Reset();
+            }
         }
     }
 }

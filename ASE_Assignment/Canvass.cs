@@ -46,7 +46,11 @@ namespace ASE_Assignment
             g.Clear(Color.DarkGray);   
         }
 
-
+        public void Reset()
+        {
+            p.X = 0; 
+            p.Y = 0;
+        }
 
     }
 }
