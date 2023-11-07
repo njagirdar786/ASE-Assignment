@@ -18,7 +18,7 @@ namespace ASE_Assignment
 
         public override void draw(Graphics g)
         {
-            Pen p = new Pen(Color.Black, 2);
+            Pen p = new Pen(colour, 2);
             g.DrawEllipse(p, x, y, radius * 2, radius * 2);
         }
     }

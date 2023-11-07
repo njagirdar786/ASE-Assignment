@@ -12,23 +12,26 @@ namespace ASE_Assignment
 {
     public partial class Form1 : Form
     {
+        Bitmap myBitmap;
+
         public Form1()
         {
             InitializeComponent();
+
+            myBitmap = new Bitmap(315, 393);
+
         }
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
-            
-        }
 
-        private void pictureBox1_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
+            Graphics g = Graphics.FromImage(myBitmap);
 
-            Shape circle1 = new Circle(Color.Red, 10, 10, 10);
+            Shape circle1 = new Circle(Color.Red, 10, 10, 100);
 
             circle1.draw(g);
+
+            pictureBox1.Image = myBitmap;
 
         }
     }
