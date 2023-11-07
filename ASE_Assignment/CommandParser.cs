@@ -20,6 +20,13 @@ namespace ASE_Assignment
                 Shape circle = new Circle(pen.Color, 10, 10, radius);
                 canvas.DrawShape(circle);
             }
+            else if (commandParts[0] == "rectangle")
+            {
+                int width = Int32.Parse(commandParts[1]);
+                int height = Int32.Parse(commandParts[2]);
+                Shape rectangle = new Rectangle(pen.Color, 10, 10, width, height);
+                canvas.DrawShape(rectangle);
+            }
             else if (commandParts[0] == "moveTo")
             {
                 int x = Int32.Parse(commandParts[1]);
