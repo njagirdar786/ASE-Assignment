@@ -40,5 +40,13 @@ namespace ASE_Assignment
         {
             g.DrawLine(pen, p.X, p.Y, x, y);
         }
+
+        public void Clear()
+        {
+            g.Clear(Color.DarkGray);   
+        }
+
+
+
     }
 }
