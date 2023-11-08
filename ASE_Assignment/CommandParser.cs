@@ -55,6 +55,25 @@ namespace ASE_Assignment
             {
                 canvas.Reset();
             }
+            else if (commandParts[0] == "pen")
+            {
+                if (commandParts[1] == "red")
+                {
+                    pen.Color = Color.Red;
+                }
+                if (commandParts[1] == "green")
+                {
+                    pen.Color = Color.Green;
+                }
+                if (commandParts[1] == "blue")
+                {
+                    pen.Color = Color.Blue;
+                }
+                if (commandParts[1] == "black")
+                {
+                    pen.Color = Color.Black;
+                }
+            }
         }
     }
 }

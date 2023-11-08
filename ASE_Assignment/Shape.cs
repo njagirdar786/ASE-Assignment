@@ -19,7 +19,7 @@ namespace ASE_Assignment
             this.y = y;
         }
 
-        public abstract void draw(Graphics g, Point point);
+        public abstract void draw(Graphics g, Point point, Pen pen);
 
         public override string ToString()
         {

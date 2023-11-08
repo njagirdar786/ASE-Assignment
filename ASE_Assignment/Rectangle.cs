@@ -16,10 +16,10 @@ namespace ASE_Assignment
             this.width = width;
             this.height = height;
         }
-        public override void draw(Graphics g, Point point)
+        public override void draw(Graphics g, Point point, Pen pen)
         {
             Pen p = new Pen(colour, 2);
-            g.DrawRectangle(p, point.X, point.Y, width, height);
+            g.DrawRectangle(pen, point.X, point.Y, width, height);
         }
     }
 }

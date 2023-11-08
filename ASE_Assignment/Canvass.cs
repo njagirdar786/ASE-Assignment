@@ -13,18 +13,19 @@ namespace ASE_Assignment
         private Bitmap myBitmap;
         private Graphics g;
         private Point p;
+        private Pen pen;
 
-        public Canvass(int width, int height)
+        public Canvass(Pen pen, int width, int height)
         {
             myBitmap = new Bitmap(width, height);
             g = Graphics.FromImage(myBitmap);
-           
+            this.pen = pen;
 
         }
 
         public void DrawShape(Shape shape)
         {
-            shape.draw(g, p);
+            shape.draw(g, p, pen);
         }
 
         public Bitmap GetBitmap()

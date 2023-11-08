@@ -18,7 +18,7 @@ namespace ASE_Assignment
             this.side2 = side2; 
             this.side3 = side3; 
         }
-        public override void draw(Graphics g, Point point)
+        public override void draw(Graphics g, Point point, Pen pen)
         {
             Pen p = new Pen(colour, 2);
 
@@ -28,7 +28,7 @@ namespace ASE_Assignment
 
             Point[] vertices = { v1, v2, v3 };
 
-            g.DrawPolygon(p, vertices);
+            g.DrawPolygon(pen, vertices);
 
         }
     }
