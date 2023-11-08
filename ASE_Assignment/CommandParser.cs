@@ -25,20 +25,20 @@ namespace ASE_Assignment
             string[] commandParts = command.Split(' ');
 
 
-            if (commandParts[0] == "circle")
+            if (commandParts[0] == "circle" && commandParts.Length == 2)
             {
                 int radius = Int32.Parse(commandParts[1]);
                 Shape circle = new Circle(pen.Color, 10, 10, radius);
                 canvas.DrawShape(circle, fill);
             }
-            else if (commandParts[0] == "rectangle")
+            else if (commandParts[0] == "rectangle" && commandParts.Length == 3)
             {
                 int width = Int32.Parse(commandParts[1]);
                 int height = Int32.Parse(commandParts[2]);
                 Shape rectangle = new Rectangle(pen.Color, 10, 10, width, height);
                 canvas.DrawShape(rectangle, fill);
             }
-            else if (commandParts[0] == "triangle")
+            else if (commandParts[0] == "triangle" && commandParts.Length == 4)
             {
                 int s1 = Int32.Parse(commandParts[1]);
                 int s2 = Int32.Parse(commandParts[2]);
@@ -46,27 +46,27 @@ namespace ASE_Assignment
                 Shape triangle = new Triangle(pen.Color, 10, 10, s1, s2, s3);
                 canvas.DrawShape(triangle, fill);
             }
-            else if (commandParts[0] == "moveTo")
+            else if (commandParts[0] == "moveTo" && commandParts.Length == 3)
             {
                 int x = Int32.Parse(commandParts[1]);
                 int y = Int32.Parse(commandParts[2]);
                 canvas.MoveTo(x, y);
             }
-            else if (commandParts[0] == "drawLine")
+            else if (commandParts[0] == "drawLine" && commandParts.Length == 3)
             {
                 int x = Int32.Parse(commandParts[1]);
                 int y = Int32.Parse(commandParts[2]);
                 canvas.DrawLine(pen, x, y);
             }
-            else if (commandParts[0] == "clear")
+            else if (commandParts[0] == "clear" && commandParts.Length == 1)
             {
                 canvas.Clear();
             }
-            else if (commandParts[0] == "reset")
+            else if (commandParts[0] == "reset" && commandParts.Length == 1)
             {
                 canvas.Reset();
             }
-            else if (commandParts[0] == "pen")
+            else if (commandParts[0] == "pen" && commandParts.Length == 2)
             {
                 if (commandParts[1] == "red")
                 {
@@ -85,7 +85,7 @@ namespace ASE_Assignment
                     pen.Color = Color.Black;
                 }
             }
-            else if (commandParts[0] == "fill")
+            else if (commandParts[0] == "fill" && commandParts.Length == 2)
             {
                 if (commandParts[1] == "on")
                 {
@@ -98,6 +98,7 @@ namespace ASE_Assignment
                     Console.WriteLine("fill off");
                 }
             }
+           
         }
     }
 }
