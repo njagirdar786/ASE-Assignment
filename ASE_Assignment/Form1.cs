@@ -27,7 +27,17 @@ namespace ASE_Assignment
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
-            command = singleTextBox.Text;
+            
+            if(singleTextBox.Text == "" && multiTextBox.Text != "")
+            {
+                command = multiTextBox.Text;
+            }
+            else if(singleTextBox.Text != "" && multiTextBox.Text == "")
+            {
+                command = singleTextBox.Text;
+            }
+
+
             CommandParser cp = new CommandParser(command, canvas, pen);
             Bitmap myBitmap = canvas.GetBitmap();
             pictureBox1.Image = myBitmap;

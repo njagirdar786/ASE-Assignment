@@ -18,7 +18,6 @@ namespace ASE_Assignment
         }
         public override void draw(Graphics g, Point point, Pen pen)
         {
-            Pen p = new Pen(colour, 2);
             g.DrawRectangle(pen, point.X, point.Y, width, height);
         }
     }

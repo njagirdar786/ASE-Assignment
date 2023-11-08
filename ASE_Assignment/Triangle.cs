@@ -20,7 +20,6 @@ namespace ASE_Assignment
         }
         public override void draw(Graphics g, Point point, Pen pen)
         {
-            Pen p = new Pen(colour, 2);
 
             Point v1 = point;
             Point v2 = new Point(point.X + side1, point.Y);

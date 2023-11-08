@@ -11,7 +11,16 @@ namespace ASE_Assignment
     {
         public CommandParser(string command, Canvass canvas, Pen pen)
         {
+            string[] commands = command.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
+            foreach (string c in commands)
+            {
+                ParseIndividualCommand(c, canvas, pen);
+            }
+        }
+
+        private void ParseIndividualCommand(string command, Canvass canvas, Pen pen)
+        {
             string[] commandParts = command.Split(' ');
 
             if (commandParts[0] == "circle")
