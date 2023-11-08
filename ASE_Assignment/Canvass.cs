@@ -23,9 +23,9 @@ namespace ASE_Assignment
 
         }
 
-        public void DrawShape(Shape shape)
+        public void DrawShape(Shape shape, bool fill)
         {
-            shape.draw(g, p, pen);
+            shape.draw(g, p, pen, fill);
         }
 
         public Bitmap GetBitmap()

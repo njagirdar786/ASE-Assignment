@@ -16,9 +16,18 @@ namespace ASE_Assignment
             this.width = width;
             this.height = height;
         }
-        public override void draw(Graphics g, Point point, Pen pen)
+        public override void draw(Graphics g, Point point, Pen pen, bool fill)
         {
-            g.DrawRectangle(pen, point.X, point.Y, width, height);
+            if (fill == true)
+            {
+                SolidBrush brush = new SolidBrush(pen.Color);
+                g.DrawRectangle(pen, point.X, point.Y, width, height);
+                g.FillRectangle(brush, point.X, point.Y, width, height);
+            }
+            else
+            {
+                g.DrawRectangle(pen, point.X, point.Y, width, height);
+            }
         }
     }
 }

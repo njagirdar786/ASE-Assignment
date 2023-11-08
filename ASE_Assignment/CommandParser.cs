@@ -9,6 +9,7 @@ namespace ASE_Assignment
 {
     internal class CommandParser
     {
+        bool fill = false;
         public CommandParser(string command, Canvass canvas, Pen pen)
         {
             string[] commands = command.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
@@ -23,18 +24,19 @@ namespace ASE_Assignment
         {
             string[] commandParts = command.Split(' ');
 
+
             if (commandParts[0] == "circle")
             {
                 int radius = Int32.Parse(commandParts[1]);
                 Shape circle = new Circle(pen.Color, 10, 10, radius);
-                canvas.DrawShape(circle);
+                canvas.DrawShape(circle, fill);
             }
             else if (commandParts[0] == "rectangle")
             {
                 int width = Int32.Parse(commandParts[1]);
                 int height = Int32.Parse(commandParts[2]);
                 Shape rectangle = new Rectangle(pen.Color, 10, 10, width, height);
-                canvas.DrawShape(rectangle);
+                canvas.DrawShape(rectangle, fill);
             }
             else if (commandParts[0] == "triangle")
             {
@@ -42,7 +44,7 @@ namespace ASE_Assignment
                 int s2 = Int32.Parse(commandParts[2]);
                 int s3 = Int32.Parse(commandParts[3]);
                 Shape triangle = new Triangle(pen.Color, 10, 10, s1, s2, s3);
-                canvas.DrawShape(triangle);
+                canvas.DrawShape(triangle, fill);
             }
             else if (commandParts[0] == "moveTo")
             {
@@ -81,6 +83,19 @@ namespace ASE_Assignment
                 if (commandParts[1] == "black")
                 {
                     pen.Color = Color.Black;
+                }
+            }
+            else if (commandParts[0] == "fill")
+            {
+                if (commandParts[1] == "on")
+                {
+                    fill = true;
+                    Console.WriteLine("fill on");
+                } 
+                else if (commandParts[1] == "off")
+                {
+                    fill = false;
+                    Console.WriteLine("fill off");
                 }
             }
         }

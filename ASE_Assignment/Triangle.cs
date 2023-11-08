@@ -18,7 +18,7 @@ namespace ASE_Assignment
             this.side2 = side2; 
             this.side3 = side3; 
         }
-        public override void draw(Graphics g, Point point, Pen pen)
+        public override void draw(Graphics g, Point point, Pen pen, bool fill)
         {
 
             Point v1 = point;
@@ -27,7 +27,17 @@ namespace ASE_Assignment
 
             Point[] vertices = { v1, v2, v3 };
 
-            g.DrawPolygon(pen, vertices);
+
+            if (fill == true)
+            {
+                SolidBrush brush = new SolidBrush(pen.Color);
+                g.DrawPolygon(pen, vertices);
+                g.FillPolygon(brush, vertices);
+            }
+            else
+            {
+                g.DrawPolygon(pen, vertices);
+            }
 
         }
     }
