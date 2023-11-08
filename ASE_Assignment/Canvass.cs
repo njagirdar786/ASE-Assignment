@@ -18,6 +18,7 @@ namespace ASE_Assignment
         {
             myBitmap = new Bitmap(width, height);
             g = Graphics.FromImage(myBitmap);
+           
 
         }
 
@@ -30,6 +31,7 @@ namespace ASE_Assignment
         {
             return myBitmap;
         }
+
 
         public void MoveTo(int x, int y)
         {
