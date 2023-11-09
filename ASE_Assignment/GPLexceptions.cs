@@ -13,7 +13,7 @@ namespace ASE_Assignment
             public InvalidCommandException() { }
             public InvalidCommandException(string message) : base(message) { }
         }
-        public class InvalidParameterException : InvalidCommandException 
+        public class InvalidParameterException : Exception 
         {
             public InvalidParameterException() { }
             public InvalidParameterException(string message) : base(message) { }    
