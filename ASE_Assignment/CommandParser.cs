@@ -73,8 +73,15 @@ namespace ASE_Assignment
             }
             else if (commandParts[0] == "triangle")
             {
-                int width = Int32.Parse(commandParts[1]);
-                int height = Int32.Parse(commandParts[2]);
+                if (commandParts.Length != 3)
+                {
+                    throw new GPLexceptions.InvalidCommandException("invalid number of paramters for triangle command");
+                }
+
+                if (!Int32.TryParse(commandParts[1], out int width) || !Int32.TryParse(commandParts[2], out int height) || width <= 0 || height <= 0)
+                {
+                    throw new GPLexceptions.InvalidParameterException("invalid parameters for triangle command, must enter positive integers");
+                }
                 
                 Shape triangle = new Triangle(pen.Color, 10, 10, width, height);
                 canvas.DrawShape(triangle, fill);
