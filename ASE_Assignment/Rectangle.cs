@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ASE_Assignment
 {
-    internal class Rectangle:Shape
+    public class Rectangle:Shape
     {
         protected int width;
         protected int height;
@@ -16,6 +16,10 @@ namespace ASE_Assignment
             this.width = width;
             this.height = height;
         }
+
+        public int GetWidth() {  return width; }
+        public int GetHeight() { return height; }   
+
         public override void draw(Graphics g, Point point, Pen pen, bool fill)
         {
             if (fill == true)
