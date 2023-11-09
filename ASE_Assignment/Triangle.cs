@@ -9,21 +9,20 @@ namespace ASE_Assignment
 {
     internal class Triangle:Shape
     {
-        protected int side1;
-        protected int side2;
-        protected int side3;
-        public Triangle(Color colour, int x, int y, int side1, int side2, int side3) : base(colour, x, y)
+        protected int width;
+        protected int height;
+        
+        public Triangle(Color colour, int x, int y, int width, int height) : base(colour, x, y)
         {
-            this.side1 = side1; 
-            this.side2 = side2; 
-            this.side3 = side3; 
+            this.width = width;
+            this.height = height;
         }
         public override void draw(Graphics g, Point point, Pen pen, bool fill)
         {
 
             Point v1 = point;
-            Point v2 = new Point(point.X + side1, point.Y);
-            Point v3 = new Point(point.X + side2, point.Y - side3);
+            Point v2 = new Point(point.X + width, point.Y);
+            Point v3 = new Point(point.X + (width / 2), point.Y - height);
 
             Point[] vertices = { v1, v2, v3 };
 

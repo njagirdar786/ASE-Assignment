@@ -73,10 +73,10 @@ namespace ASE_Assignment
             }
             else if (commandParts[0] == "triangle")
             {
-                int s1 = Int32.Parse(commandParts[1]);
-                int s2 = Int32.Parse(commandParts[2]);
-                int s3 = Int32.Parse(commandParts[3]);
-                Shape triangle = new Triangle(pen.Color, 10, 10, s1, s2, s3);
+                int width = Int32.Parse(commandParts[1]);
+                int height = Int32.Parse(commandParts[2]);
+                
+                Shape triangle = new Triangle(pen.Color, 10, 10, width, height);
                 canvas.DrawShape(triangle, fill);
             }
             else if (commandParts[0] == "moveTo")
