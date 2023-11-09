@@ -43,5 +43,24 @@ namespace ASE_Assignment
             pictureBox1.Image = myBitmap;
             singleTextBox.Clear();
         }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+                string[] commandsToSave =  command.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+                System.IO.File.WriteAllLines(filePath, commandsToSave);
+                MessageBox.Show("Commands saved successfully");
+            }
+
+        }
+
+        private void openBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

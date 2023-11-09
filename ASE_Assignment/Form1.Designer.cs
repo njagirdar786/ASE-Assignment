@@ -80,6 +80,7 @@
             this.openBtn.TabIndex = 4;
             this.openBtn.Text = "Open";
             this.openBtn.UseVisualStyleBackColor = true;
+            this.openBtn.Click += new System.EventHandler(this.openBtn_Click);
             // 
             // saveBtn
             // 
@@ -89,6 +90,7 @@
             this.saveBtn.TabIndex = 5;
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // Form1
             // 
