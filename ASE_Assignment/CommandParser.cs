@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ASE_Assignment
 {
@@ -22,11 +23,11 @@ namespace ASE_Assignment
                 }
                 catch (GPLexceptions.InvalidCommandException ex)
                 { 
-                    Console.WriteLine("Command Error: " + ex.Message);
+                    MessageBox.Show("Command Error: " + ex.Message);
                 }
                 catch (GPLexceptions.InvalidParameterException ex)
                 {
-                    Console.WriteLine("Parameter Error: " + ex.Message);
+                    MessageBox.Show("Parameter Error: " + ex.Message);
                 }
             }
         }
