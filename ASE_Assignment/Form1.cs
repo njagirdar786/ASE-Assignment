@@ -46,11 +46,11 @@ namespace ASE_Assignment
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            SaveFileDialog sfd = new SaveFileDialog();
 
-            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            if(sfd.ShowDialog() == DialogResult.OK)
             {
-                string filePath = saveFileDialog.FileName;
+                string filePath = sfd.FileName;
                 string[] commandsToSave =  command.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
                 System.IO.File.WriteAllLines(filePath, commandsToSave);
                 MessageBox.Show("Commands saved successfully");
@@ -60,6 +60,18 @@ namespace ASE_Assignment
 
         private void openBtn_Click(object sender, EventArgs e)
         {
+            OpenFileDialog ofd = new OpenFileDialog();
+            
+            if(ofd.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = ofd.FileName;
+                string[] commandsToOpen = System.IO.File.ReadAllLines(filePath);
+
+                foreach (string c in commandsToOpen)
+                {
+                    multiTextBox.Text += c + Environment.NewLine;
+                }
+            }
 
         }
     }
