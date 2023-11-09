@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace ASE_Assignment
 {
-    internal class Circle:Shape
+    public class Circle:Shape
     {
         protected int radius;
 
         public Circle(Color colour, int x, int y, int radius) : base(colour, x, y)
         {
             this.radius = radius;
+        }
+
+        public int GetRadius()
+        {
+            return radius;
         }
 
         public override void draw(Graphics g, Point point, Pen pen, bool fill)

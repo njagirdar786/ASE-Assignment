@@ -125,6 +125,7 @@ namespace ASE_Assignment
                 }
 
                 canvas.Clear();
+                canvas.ClearShapeList();
             }
             else if (commandParts[0] == "reset")
             {
