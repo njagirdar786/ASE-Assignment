@@ -143,7 +143,7 @@ namespace ASE_Assignment
                     throw new GPLexceptions.InvalidCommandException("invalid number of paramters for pen command");
                 }
 
-                if(commandParts[1] != "red" || commandParts[1] != "green" || commandParts[1] != "blue" || commandParts[1] != "black")
+                if(commandParts[1] != "red" && commandParts[1] != "green" && commandParts[1] != "blue" && commandParts[1] != "black")
                 {
                     throw new GPLexceptions.InvalidParameterException("invalid parameter for pen command: choose from red/green/blue/black");
                 }
@@ -172,7 +172,7 @@ namespace ASE_Assignment
                     throw new GPLexceptions.InvalidCommandException("invalid number of paramters for fill command");
                 }
 
-                if (commandParts[1] != "on" || commandParts[1] != "off")
+                if (commandParts[1] != "on" && commandParts[1] != "off")
                 {
                     throw new GPLexceptions.InvalidParameterException("invalid parameter for fill command: choose from on/off");
                 }
