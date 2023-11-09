@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ASE_Assignment
 {
-    internal class CommandParser
+    public class CommandParser
     {
         bool fill = false;
         public CommandParser(string command, Canvass canvas, Pen pen)

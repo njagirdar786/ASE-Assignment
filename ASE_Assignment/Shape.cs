@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ASE_Assignment
 {
-    abstract class Shape
+    public abstract class Shape
     {
         protected Color colour;
         protected int x, y;

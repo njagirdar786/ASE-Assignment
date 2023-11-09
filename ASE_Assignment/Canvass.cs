@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ASE_Assignment
 {
-    internal class Canvass
+    public class Canvass
     {
 
         private Bitmap myBitmap;
