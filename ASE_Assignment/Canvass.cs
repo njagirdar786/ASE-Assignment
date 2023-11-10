@@ -53,6 +53,11 @@ namespace ASE_Assignment
             p = new Point(x, y);
         }
 
+        public Point GetPoint()
+        {
+            return p;
+        }
+
         public void DrawLine(Pen pen, int x, int y)
         {
             g.DrawLine(pen, p.X, p.Y, x, y);

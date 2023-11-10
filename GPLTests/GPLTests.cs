@@ -74,5 +74,18 @@ namespace GPLTests
                 CommandParser cp = new CommandParser(command, canvas, p);
             });
         }
+
+        [TestMethod]
+        public void moveToTest()
+        {
+            string command = "moveTo 100 100";
+            Pen p = new Pen(Color.Black, 2);
+            Canvass canvas = new Canvass(p, 313, 393);
+            CommandParser cp = new CommandParser(command, canvas, p);
+
+            Point point = canvas.GetPoint();
+            Assert.AreEqual(100, point.X);
+            Assert.AreEqual(100, point.Y);
+        }
     }
 }
