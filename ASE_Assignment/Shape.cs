@@ -35,7 +35,7 @@ namespace ASE_Assignment
         /// <param name="point">Position to draw the shape.</param>
         /// <param name="pen">Pen for drawing the shape.</param>
         /// <param name="fill">Boolean determining to fill the shape or not.</param>
-        public abstract void draw(Graphics g, Point point, Pen pen, bool fill);
+        public abstract void Draw(Graphics g, Point point, Pen pen, bool fill);
 
 
         public override string ToString()

@@ -41,7 +41,7 @@ namespace ASE_Assignment
         /// <param name="fill">Boolean that determines to use fill or not</param>
         public void DrawShape(Shape shape, bool fill)
         {
-            shape.draw(g, p, pen, fill);
+            shape.Draw(g, p, pen, fill);
             drawnShapes.Add(shape);
         }
 
