@@ -87,5 +87,18 @@ namespace GPLTests
             Assert.AreEqual(100, point.X);
             Assert.AreEqual(100, point.Y);
         }
+
+        [TestMethod]
+        public void penColourTest()
+        {
+            Pen p = new Pen(Color.Black, 2);
+            string command = "pen red";
+            Canvass canvas = new Canvass(p, 313, 393);
+            CommandParser cp = new CommandParser(command, canvas, p);
+
+            Pen testPen = canvas.GetPen();
+
+            Assert.AreEqual(Color.Red, testPen.Color);
+        }
     }
 }

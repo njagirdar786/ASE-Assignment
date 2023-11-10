@@ -58,6 +58,11 @@ namespace ASE_Assignment
             return p;
         }
 
+        public Pen GetPen()
+        {
+            return pen;
+        }
+
         public void DrawLine(Pen pen, int x, int y)
         {
             g.DrawLine(pen, p.X, p.Y, x, y);
