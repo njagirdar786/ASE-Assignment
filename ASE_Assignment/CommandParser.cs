@@ -8,15 +8,25 @@ using System.Windows.Forms;
 
 namespace ASE_Assignment
 {
+    /// <summary>
+    /// Parses and executes commands
+    /// </summary>
     public class CommandParser
     {
         bool fill = false;
 
+        // Test method for checking if fill is true or false
         public bool isFilled()
         {
             return fill;
         }
 
+        /// <summary>
+        /// Initialise new instance of CommandParser, goes through command line by line and feeds it to ParseIndividualCommand.
+        /// </summary>
+        /// <param name="command">A string containing the commands entered by the user.</param>
+        /// <param name="canvas">A canvas in which the results of the commands can be seen.</param>
+        /// <param name="pen">The current drawing pen.</param>
         public CommandParser(string command, Canvass canvas, Pen pen)
         {
             string[] commands = command.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
@@ -26,7 +36,14 @@ namespace ASE_Assignment
                     ParseIndividualCommand(c, canvas, pen);
             }
         }
-
+        /// <summary>
+        /// Parses and executes inidividual commands from CommandParser.
+        /// </summary>
+        /// <param name="command">An individual command.</param>
+        /// <param name="canvas">A canvas in which the results of the commands can be seen</param>
+        /// <param name="pen">The current drawing pen</param>
+        /// <exception cref="GPLexceptions.InvalidCommandException">Exception if a command is not recognised or is entered incorrectly.</exception>
+        /// <exception cref="GPLexceptions.InvalidParameterException">Exception if parameters for a command are invalid or the correct number of parameters have not been entered.</exception>
         private void ParseIndividualCommand(string command, Canvass canvas, Pen pen)
         {
             string[] commandParts = command.Split(' ');
