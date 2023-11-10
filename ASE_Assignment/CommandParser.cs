@@ -11,6 +11,12 @@ namespace ASE_Assignment
     public class CommandParser
     {
         bool fill = false;
+
+        public bool isFilled()
+        {
+            return fill;
+        }
+
         public CommandParser(string command, Canvass canvas, Pen pen)
         {
             string[] commands = command.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);

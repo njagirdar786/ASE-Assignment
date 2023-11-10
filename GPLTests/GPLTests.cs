@@ -100,5 +100,16 @@ namespace GPLTests
 
             Assert.AreEqual(Color.Red, testPen.Color);
         }
+
+        [TestMethod]
+        public void fillTest()
+        {
+            string command = "fill on";
+            Pen p = new Pen(Color.Black, 2);
+            Canvass canvas = new Canvass(p, 313, 393);
+            CommandParser cp = new CommandParser(command, canvas, p);
+
+            Assert.IsTrue(cp.isFilled());
+        }
     }
 }
