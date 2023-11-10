@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace ASE_Assignment
 {
+    /// <summary>
+    /// The main form of the application.
+    /// </summary>
     public partial class Form1 : Form
     {
         Pen pen;
@@ -25,9 +28,12 @@ namespace ASE_Assignment
 
         }
 
+        /// <summary>
+        /// Event handler for submit button click.
+        /// </summary>
         private void submitBtn_Click(object sender, EventArgs e)
         {
-            
+            // Determine the textbox to execute commands from based on the one the user chooses to type in.
             if(singleTextBox.Text == "" && multiTextBox.Text != "")
             {
                 command = multiTextBox.Text;
@@ -37,13 +43,16 @@ namespace ASE_Assignment
                 command = singleTextBox.Text;
             }
 
+            
             try
             {
+                // Parse and execute the command using CommandParser
                 CommandParser cp = new CommandParser(command, canvas, pen);
                 Bitmap myBitmap = canvas.GetBitmap();
                 pictureBox1.Image = myBitmap;
                 singleTextBox.Clear();
             }
+            //Exception handling
             catch (GPLexceptions.InvalidCommandException ex)
             {
                 MessageBox.Show("Command Error: " + ex.Message);
@@ -54,7 +63,9 @@ namespace ASE_Assignment
             }
 
         }
-
+        /// <summary>
+        /// Event Handler for save button click
+        /// </summary>
         private void saveBtn_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
@@ -68,7 +79,9 @@ namespace ASE_Assignment
             }
 
         }
-
+        /// <summary>
+        /// Event Handler for save button click
+        /// </summary>
         private void openBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -80,6 +93,7 @@ namespace ASE_Assignment
 
                 foreach (string c in commandsToOpen)
                 {
+                    //populate multiTextBox with the commands from the opened file. appends a new line to the end of every command
                     multiTextBox.Text += c + Environment.NewLine;
                 }
             }
