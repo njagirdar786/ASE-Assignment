@@ -6,9 +6,15 @@ using System.Collections.Generic;
 
 namespace GPLTests
 {
+    /// <summary>
+    /// Contains unit tests for CommandParser class.
+    /// </summary>
     [TestClass]
     public class CommandParserTests
     {
+        /// <summary>
+        /// Tests for parsing single valid command.
+        /// </summary>
         [TestMethod]
         public void singleCommandTest()
         {
@@ -24,6 +30,11 @@ namespace GPLTests
             Assert.AreEqual(20, circle.GetRadius());
         }
 
+        /// <summary>
+        /// Test for parsing multiple valid commands.
+        /// This test class contains 3 shapes, Circle, Triangle and Rectangle.
+        /// It serves as a unit test for all three of these shapes as the test would not pass if the shapes were not implemented properly. 
+        /// </summary>
         [TestMethod]
         public void multiCommandTest()
         {
@@ -49,6 +60,9 @@ namespace GPLTests
             Assert.AreEqual(50, rect.GetHeight());
         }
 
+        /// <summary>
+        /// Test for parsing an invalid command.
+        /// </summary>
         [TestMethod]
         public void invalidCommandTest()
         {
@@ -62,6 +76,9 @@ namespace GPLTests
             });       
         }
 
+        /// <summary>
+        /// Test for parsing invalid parameter.
+        /// </summary>
         [TestMethod]
         public void invalidParameterTest()
         {
@@ -75,6 +92,9 @@ namespace GPLTests
             });
         }
 
+        /// <summary>
+        /// Test for parsing moveTo command.
+        /// </summary>
         [TestMethod]
         public void moveToTest()
         {
@@ -88,6 +108,9 @@ namespace GPLTests
             Assert.AreEqual(100, point.Y);
         }
 
+        /// <summary>
+        /// Test for changing pen colour command.
+        /// </summary>
         [TestMethod]
         public void penColourTest()
         {
@@ -101,6 +124,9 @@ namespace GPLTests
             Assert.AreEqual(Color.Red, testPen.Color);
         }
 
+        /// <summary>
+        /// Test for fill command.
+        /// </summary>
         [TestMethod]
         public void fillTest()
         {
