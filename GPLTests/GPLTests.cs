@@ -48,5 +48,18 @@ namespace GPLTests
             Assert.AreEqual(100, rect.GetWidth());
             Assert.AreEqual(50, rect.GetHeight());
         }
+
+        [TestMethod]
+        public void invalidCommandTest()
+        {
+            string command = "doodoo x";
+            Pen p = new Pen(Color.Black, 2);
+            Canvass canvas = new Canvass(p, 313, 393);
+
+            Assert.ThrowsException<GPLexceptions.InvalidCommandException>(() =>
+            {
+                CommandParser cp = new CommandParser(command, canvas, p);
+            });       
+        }
     }
 }

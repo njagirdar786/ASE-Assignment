@@ -22,11 +22,13 @@ namespace ASE_Assignment
                     ParseIndividualCommand(c, canvas, pen);
                 }
                 catch (GPLexceptions.InvalidCommandException ex)
-                { 
+                {
+                    throw ex;
                     MessageBox.Show("Command Error: " + ex.Message);
                 }
                 catch (GPLexceptions.InvalidParameterException ex)
                 {
+                    throw ex;
                     MessageBox.Show("Parameter Error: " + ex.Message);
                 }
             }
