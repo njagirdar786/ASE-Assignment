@@ -37,11 +37,22 @@ namespace ASE_Assignment
                 command = singleTextBox.Text;
             }
 
+            try
+            {
+                CommandParser cp = new CommandParser(command, canvas, pen);
+                Bitmap myBitmap = canvas.GetBitmap();
+                pictureBox1.Image = myBitmap;
+                singleTextBox.Clear();
+            }
+            catch (GPLexceptions.InvalidCommandException ex)
+            {
+                MessageBox.Show("Command Error: " + ex.Message);
+            }
+            catch (GPLexceptions.InvalidParameterException ex)
+            {
+                MessageBox.Show("Parameter Error: " + ex.Message);
+            }
 
-            CommandParser cp = new CommandParser(command, canvas, pen);
-            Bitmap myBitmap = canvas.GetBitmap();
-            pictureBox1.Image = myBitmap;
-            singleTextBox.Clear();
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
