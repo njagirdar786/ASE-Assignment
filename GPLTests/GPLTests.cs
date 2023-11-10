@@ -61,5 +61,18 @@ namespace GPLTests
                 CommandParser cp = new CommandParser(command, canvas, p);
             });       
         }
+
+        [TestMethod]
+        public void invalidParameterTest()
+        {
+            string command = "circle x";
+            Pen p = new Pen(Color.Black, 2);
+            Canvass canvas = new Canvass(p, 313, 393);
+
+            Assert.ThrowsException<GPLexceptions.InvalidParameterException>(() =>
+            {
+                CommandParser cp = new CommandParser(command, canvas, p);
+            });
+        }
     }
 }
