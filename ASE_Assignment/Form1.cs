@@ -88,6 +88,7 @@ namespace ASE_Assignment
             
             if(ofd.ShowDialog() == DialogResult.OK)
             {
+                multiTextBox.Clear();
                 string filePath = ofd.FileName;
                 string[] commandsToOpen = System.IO.File.ReadAllLines(filePath);
 
