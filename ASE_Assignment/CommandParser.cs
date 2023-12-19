@@ -15,13 +15,30 @@ namespace ASE_Assignment
     {
         bool fill = false;
 
-        //Dictionary to store variables, key -> value pairs
-        private Dictionary<string, int> Variables = new Dictionary<string, int>();
-
         // Test method for checking if fill is true or false
         public bool isFilled()
         {
             return fill;
+        }
+
+        //Dictionary to store variables, key -> value pairs
+        private Dictionary<string, int> Variables = new Dictionary<string, int>();
+
+        private int checkVarOrValue(string varOrValue)
+        {
+            if (Variables.ContainsKey(varOrValue))
+            {
+                return Variables[varOrValue];
+            }
+            else if (Int32.TryParse(varOrValue, out int value))
+            {
+                return value;
+            }
+            else
+            {
+                throw new GPLexceptions.InvalidParameterException("Invalid variable or value" + varOrValue);
+                
+            }
         }
 
         /// <summary>
@@ -63,9 +80,11 @@ namespace ASE_Assignment
                     throw new GPLexceptions.InvalidCommandException("invalid number of paramters for circle command");
                 }
 
-                if (!Int32.TryParse(commandParts[1], out int radius) || radius <= 0) 
+                int radius = checkVarOrValue(commandParts[1]);
+
+                if (radius <= 0)
                 {
-                    throw new GPLexceptions.InvalidParameterException("invalid parameters for circle command, must enter a positive integer");
+                    throw new GPLexceptions.InvalidParameterException("radius must be a positive integer");
                 }
 
                 Shape circle = new Circle(pen.Color, 10, 10, radius);
