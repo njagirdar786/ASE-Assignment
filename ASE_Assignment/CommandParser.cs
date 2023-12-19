@@ -206,6 +206,10 @@ namespace ASE_Assignment
             }
             else if (commandParts[0] == "var")
             {
+                if (commandParts.Length != 4 || commandParts[2] != "=")
+                {
+                    throw new GPLexceptions.InvalidCommandException("invalid syntax for var command");
+                }
                 string varName = commandParts[1];
                 if (!Int32.TryParse(commandParts[3], out int varValue))
                 {
