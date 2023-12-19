@@ -153,9 +153,12 @@ namespace ASE_Assignment
                     throw new GPLexceptions.InvalidCommandException("invalid number of paramters for drawLine command");
                 }
 
-                if (!Int32.TryParse(commandParts[1], out int x) || !Int32.TryParse(commandParts[2], out int y) || x <= 0 || y <= 0)
+                int x = checkVarOrValue(commandParts[1]);
+                int y = checkVarOrValue(commandParts[2]);
+
+                if (x <= 0 || y <= 0)
                 {
-                    throw new GPLexceptions.InvalidParameterException("invalid parameters for drawLine command, must enter positive integers");
+                    throw new GPLexceptions.InvalidParameterException("drawLine x and y must be a positive integers");
                 }
 
                 canvas.DrawLine(pen, x, y);
