@@ -98,9 +98,12 @@ namespace ASE_Assignment
                     throw new GPLexceptions.InvalidCommandException("invalid number of paramters for rectangle command");
                 }
 
-                if (!Int32.TryParse(commandParts[1], out int width) || !Int32.TryParse(commandParts[2], out int height) || width <= 0 || height <= 0)
+                int width = checkVarOrValue(commandParts[1]);
+                int height = checkVarOrValue(commandParts[2]);
+
+                if (width <= 0 || height <= 0)
                 {
-                    throw new GPLexceptions.InvalidParameterException("invalid parameters for rectangle command, must enter positive integers");
+                    throw new GPLexceptions.InvalidParameterException("rectangle width and height must be a positive integers");
                 }
 
                 Shape rectangle = new Rectangle(pen.Color, 10, 10, width, height);
@@ -113,11 +116,14 @@ namespace ASE_Assignment
                     throw new GPLexceptions.InvalidCommandException("invalid number of paramters for triangle command");
                 }
 
-                if (!Int32.TryParse(commandParts[1], out int width) || !Int32.TryParse(commandParts[2], out int height) || width <= 0 || height <= 0)
+                int width = checkVarOrValue(commandParts[1]);
+                int height = checkVarOrValue(commandParts[2]);
+
+                if (width <= 0 || height <= 0)
                 {
-                    throw new GPLexceptions.InvalidParameterException("invalid parameters for triangle command, must enter positive integers");
+                    throw new GPLexceptions.InvalidParameterException("triangle width and height must be a positive integers");
                 }
-                
+
                 Shape triangle = new Triangle(pen.Color, 10, 10, width, height);
                 canvas.DrawShape(triangle, fill);
             }
@@ -129,9 +135,12 @@ namespace ASE_Assignment
                     throw new GPLexceptions.InvalidCommandException("invalid number of paramters for moveTo command");
                 }
 
-                if (!Int32.TryParse(commandParts[1], out int x) || !Int32.TryParse(commandParts[2], out int y) || x <= 0 || y <= 0)
+                int x = checkVarOrValue(commandParts[1]);
+                int y = checkVarOrValue(commandParts[2]);
+
+                if (x <= 0 || y <= 0)
                 {
-                    throw new GPLexceptions.InvalidParameterException("invalid parameters for moveTo command, must enter positive integers");
+                    throw new GPLexceptions.InvalidParameterException("moveTo x and y must be a positive integers");
                 }
 
                 canvas.MoveTo(x, y);
