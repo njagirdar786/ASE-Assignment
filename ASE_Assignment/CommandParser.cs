@@ -15,6 +15,9 @@ namespace ASE_Assignment
     {
         bool fill = false;
 
+        //Dictionary to store variables, key -> value pairs
+        private Dictionary<string, int> Variables = new Dictionary<string, int>();
+
         // Test method for checking if fill is true or false
         public bool isFilled()
         {
@@ -201,11 +204,29 @@ namespace ASE_Assignment
                     Console.WriteLine("fill off");
                 }
             }
+            else if (commandParts[0] == "var")
+            {
+                string varName = commandParts[1];
+                if (!Int32.TryParse(commandParts[3], out int varValue))
+                {
+                    throw new GPLexceptions.InvalidParameterException("invalid value for variable.");
+                }
+
+                Variables.Add(varName, varValue);
+
+            }
+            else if (commandParts[0] == "vars")
+            {
+                foreach (KeyValuePair<string, int> kvp in Variables)
+                {
+                    Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
+                }
+            }
             else
             {
                 throw new GPLexceptions.InvalidCommandException("Unknown command: " + commandParts[0]);
             }
-           
+
         }
     }
 }
