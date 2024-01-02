@@ -43,6 +43,27 @@ namespace ASE_Assignment
             }
         }
 
+        private bool EvaluateCondition(string condition)
+        {
+            string[] conditionParts = condition.Split(' ');
+            
+            int var1 = checkVarOrValue((string)conditionParts[0]);
+            string comparator = conditionParts[1];
+            int var2 = checkVarOrValue((string)conditionParts[2]);
+
+            switch (comparator)
+            {
+                case "<":
+                    return var1 < var2;
+                case ">":
+                    return var1 > var2;
+                default: 
+                    throw new GPLexceptions.InvalidCommandException(comparator + " is not a valid comparitor, use < or >");
+            }
+                    
+
+        }
+
         /// <summary>
         /// Initialise new instance of CommandParser, goes through command line by line and feeds it to ParseIndividualCommand.
         /// </summary>
@@ -74,7 +95,7 @@ namespace ASE_Assignment
 
                     string[] conditionParts = condition.Split(' ');
 
-                    while (int.Parse(conditionParts[0]) < int.Parse(conditionParts[2]))
+                    while (EvaluateCondition(condition))
                     {
                         foreach (var cmd in whileLoopCommands)
                         {
