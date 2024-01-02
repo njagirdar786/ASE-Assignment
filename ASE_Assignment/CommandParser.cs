@@ -24,7 +24,7 @@ namespace ASE_Assignment
 
         //Dictionary to store variables, key -> value pairs
         private Dictionary<string, int> Variables = new Dictionary<string, int>();
-        private List<string> whileLoopCommands = new List<string>();
+        
 
         private int checkVarOrValue(string varOrValue)
         {
@@ -53,10 +53,36 @@ namespace ASE_Assignment
         {
             string[] commands = command.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (string c in commands)
+            /*foreach (string c in commands)
             {
                     ParseIndividualCommand(c, canvas, pen);
-            }
+            }*/
+
+            for (int i = 0; i < commands.Length; i++)
+            {
+                if (commands[i].StartsWith("while"))
+                {
+
+                    List<string> whileLoopCommands = new List<string>();
+
+                    i++;
+                    while (!commands[i].StartsWith("endwhile"))
+                    {
+                        whileLoopCommands.Add(commands[i]);
+                        i++;
+                    }
+
+                    foreach (var cmd in whileLoopCommands)
+                    {
+                        Console.WriteLine(cmd);
+                    }
+                }
+                else
+                {
+                    ParseIndividualCommand(commands[i], canvas, pen);
+                }
+            } 
+
         }
         /// <summary>
         /// Parses and executes inidividual commands from CommandParser.
@@ -258,24 +284,6 @@ namespace ASE_Assignment
                 {
                     Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
                 }
-            }
-            else if (commandParts[0] == "while")
-            {
-                string whileCondition = string.Join(" ", commandParts.Skip(1));
-
-                Console.WriteLine(whileCondition);
-
-                while((command = Console.ReadLine()) != "endwhie")
-                {
-                    whileLoopCommands.Add(command); 
-                }
-
-
-            }
-            else if (commandParts[0] == "endwhile")
-            {
-                Console.WriteLine("endwhile called");
-                Console.WriteLine(whileLoopCommands);
             }
             else
             {
