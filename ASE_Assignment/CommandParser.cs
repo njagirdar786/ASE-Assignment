@@ -62,7 +62,7 @@ namespace ASE_Assignment
             {
                 if (commands[i].StartsWith("while"))
                 {
-
+                    string condition = commands[i].Substring(6);
                     List<string> whileLoopCommands = new List<string>();
 
                     i++;
@@ -72,10 +72,18 @@ namespace ASE_Assignment
                         i++;
                     }
 
-                    foreach (var cmd in whileLoopCommands)
+                    string[] conditionParts = condition.Split(' ');
+
+                    while (int.Parse(conditionParts[0]) < int.Parse(conditionParts[2]))
                     {
-                        Console.WriteLine(cmd);
+                        foreach (var cmd in whileLoopCommands)
+                        {
+                            Console.WriteLine(cmd);
+                            ParseIndividualCommand(cmd, canvas, pen);
+                            conditionParts[0] = "100" + i;
+                        }
                     }
+                    
                 }
                 else
                 {
@@ -284,6 +292,10 @@ namespace ASE_Assignment
                 {
                     Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
                 }
+            }
+            else if (commandParts[0] == "endwhile")
+            {
+                Console.WriteLine("endwhile called");
             }
             else
             {
