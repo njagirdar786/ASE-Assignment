@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +24,7 @@ namespace ASE_Assignment
 
         //Dictionary to store variables, key -> value pairs
         private Dictionary<string, int> Variables = new Dictionary<string, int>();
+        private List<string> whileLoopCommands = new List<string>();
 
         private int checkVarOrValue(string varOrValue)
         {
@@ -259,11 +261,16 @@ namespace ASE_Assignment
             }
             else if (commandParts[0] == "while")
             {
-                int var1 = checkVarOrValue(commandParts[1]);
-                string comparator = commandParts[2];
-                int var2 = checkVarOrValue(commandParts[3]);
+                string whileCondition = string.Join(" ", commandParts.Skip(1));
 
+                Console.WriteLine(whileCondition);
 
+                
+
+            }
+            else if (commandParts[0] == "endwhile")
+            {
+                Console.WriteLine("endwhile called");
             }
             else
             {
