@@ -265,12 +265,17 @@ namespace ASE_Assignment
 
                 Console.WriteLine(whileCondition);
 
-                
+                while((command = Console.ReadLine()) != "endwhie")
+                {
+                    whileLoopCommands.Add(command); 
+                }
+
 
             }
             else if (commandParts[0] == "endwhile")
             {
                 Console.WriteLine("endwhile called");
+                Console.WriteLine(whileLoopCommands);
             }
             else
             {
