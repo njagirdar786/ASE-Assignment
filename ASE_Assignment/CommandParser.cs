@@ -190,7 +190,7 @@ namespace ASE_Assignment
                     throw new GPLexceptions.InvalidCommandException("invalid number of paramters for pen command");
                 }
 
-                if(commandParts[1] != "red" && commandParts[1] != "green" && commandParts[1] != "blue" && commandParts[1] != "black")
+                if (commandParts[1] != "red" && commandParts[1] != "green" && commandParts[1] != "blue" && commandParts[1] != "black")
                 {
                     throw new GPLexceptions.InvalidParameterException("invalid parameter for pen command: choose from red/green/blue/black");
                 }
@@ -228,7 +228,7 @@ namespace ASE_Assignment
                 {
                     fill = true;
                     Console.WriteLine("fill on");
-                } 
+                }
                 else if (commandParts[1] == "off")
                 {
                     fill = false;
@@ -256,6 +256,14 @@ namespace ASE_Assignment
                 {
                     Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
                 }
+            }
+            else if (commandParts[0] == "while")
+            {
+                int var1 = checkVarOrValue(commandParts[1]);
+                string comparator = commandParts[2];
+                int var2 = checkVarOrValue(commandParts[3]);
+
+
             }
             else
             {
