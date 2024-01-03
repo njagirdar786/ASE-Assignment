@@ -58,6 +58,8 @@ namespace ASE_Assignment
                     return var1 < var2;
                 case ">":
                     return var1 > var2;
+                case "==":
+                    return var1 == var2;
                 default: 
                     throw new GPLexceptions.InvalidCommandException(comparator + " is not a valid comparitor, use < or >");
             }
@@ -103,6 +105,10 @@ namespace ASE_Assignment
                     {
                         whileLoopCommands.Add(commands[i]);
                         i++;
+                        if (i >= commands.Length)
+                        {
+                            throw new GPLexceptions.InvalidCommandException("Missing endwhile for while command");
+                        }
                     }
 
                     while (EvaluateCondition(condition))
@@ -125,6 +131,10 @@ namespace ASE_Assignment
                     {
                         ifCommands.Add(commands[i]);
                         i++;
+                        if (i >= commands.Length)
+                        {
+                            throw new GPLexceptions.InvalidCommandException("Missing endif for if command");
+                        }
                     }
 
                     if (EvaluateCondition(condition))
