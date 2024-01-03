@@ -113,7 +113,6 @@ namespace ASE_Assignment
                         {
                             Console.WriteLine(cmd);
                             ParseIndividualCommand(cmd, canvas, pen);
-                            conditionParts[0] = "100" + i;
                         }
                     }
                     
