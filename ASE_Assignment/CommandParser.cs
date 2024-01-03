@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace ASE_Assignment
 {
@@ -150,7 +151,23 @@ namespace ASE_Assignment
 
                 }
                 else if (commands[i].StartsWith("method")){
-                    //method stuff
+
+                    string methodName = commands[i].Substring(7);
+                    List<string> methodCommands = new List<string>();
+
+                    i++;
+                    while (!commands[i].StartsWith("endmethod"))
+                    {
+                        methodCommands.Add(commands[i]);
+                        i++;
+                        if (i >= commands.Length)
+                        {
+                            throw new GPLexceptions.InvalidCommandException("Missing endmethod for method command");
+                        }
+                    }
+
+                    Methods[methodName] = methodCommands;
+
                 }
                 else
                 {
