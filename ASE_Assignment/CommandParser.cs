@@ -305,23 +305,29 @@ namespace ASE_Assignment
             }
             else if (commandParts[0] == "var")
             {
-                /*if (commandParts.Length < 4 || commandParts[2] != "=")
+                if (commandParts.Length < 4 || commandParts[2] != "=")
                 {
                     throw new GPLexceptions.InvalidCommandException("invalid syntax for var command");
-                }*/
+                }
 
                 string expression = string.Join(" ", commandParts.Skip(3));
-
                 string varName = commandParts[1];
-                if (Int32.TryParse(commandParts[3], out int varValue))
+
+                try
                 {
-                    //throw new GPLexceptions.InvalidParameterException("invalid value for variable.");
-                    Variables[varName] = varValue;
+                    if (Int32.TryParse(commandParts[3], out int varValue))
+                    {
+                        Variables[varName] = varValue;
+                    }
+                    else{
+                        int expressionValue = EvaluateExpression(expression);
+                        Variables[varName] = expressionValue;
+                    }
+                } catch(Exception ex)
+                {
+                    throw new GPLexceptions.InvalidParameterException("invalid value for variable.");
                 }
-                else{
-                    int expressionValue = EvaluateExpression(expression);
-                    Variables[varName] = expressionValue;
-                }
+                
 
                 
 
