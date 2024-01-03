@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
@@ -62,6 +63,17 @@ namespace ASE_Assignment
             }
                     
 
+        }
+
+        private int EvaluateExpression(string expression)
+        {
+            foreach (var v in Variables)
+            {
+                expression = expression.Replace(v.Key, v.Value.ToString());
+            }
+
+            DataTable dt = new DataTable();
+            return Convert.ToInt32(dt.Compute(expression, ""));
         }
 
         /// <summary>
@@ -294,17 +306,25 @@ namespace ASE_Assignment
             }
             else if (commandParts[0] == "var")
             {
-                if (commandParts.Length != 4 || commandParts[2] != "=")
+                /*if (commandParts.Length < 4 || commandParts[2] != "=")
                 {
                     throw new GPLexceptions.InvalidCommandException("invalid syntax for var command");
-                }
+                }*/
+
+                string expression = string.Join(" ", commandParts.Skip(3));
+
                 string varName = commandParts[1];
-                if (!Int32.TryParse(commandParts[3], out int varValue))
+                if (Int32.TryParse(commandParts[3], out int varValue))
                 {
-                    throw new GPLexceptions.InvalidParameterException("invalid value for variable.");
+                    //throw new GPLexceptions.InvalidParameterException("invalid value for variable.");
+                    Variables[varName] = varValue;
+                }
+                else{
+                    int expressionValue = EvaluateExpression(expression);
+                    Variables[varName] = expressionValue;
                 }
 
-                Variables.Add(varName, varValue);
+                
 
             }
             else if (commandParts[0] == "vars")
