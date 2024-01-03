@@ -25,6 +25,8 @@ namespace ASE_Assignment
 
         //Dictionary to store variables, key -> value pairs
         private Dictionary<string, int> Variables = new Dictionary<string, int>();
+
+        private Dictionary<string, List<string>> Methods = new Dictionary<string, List<string>>();
         
 
         private int checkVarOrValue(string varOrValue)
@@ -146,6 +148,9 @@ namespace ASE_Assignment
                         }
                     }
 
+                }
+                else if (commands[i].StartsWith("method")){
+                    //method stuff
                 }
                 else
                 {
