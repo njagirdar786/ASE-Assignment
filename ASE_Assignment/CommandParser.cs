@@ -105,8 +105,6 @@ namespace ASE_Assignment
                         i++;
                     }
 
-                    string[] conditionParts = condition.Split(' ');
-
                     while (EvaluateCondition(condition))
                     {
                         foreach (var cmd in whileLoopCommands)
@@ -116,6 +114,28 @@ namespace ASE_Assignment
                         }
                     }
                     
+                }
+                else if (commands[i].StartsWith("if"))
+                {
+                    string condition = commands[i].Substring(3);
+                    List<string> ifCommands = new List<string>();
+
+                    i++;
+                    while (!commands[i].StartsWith("endif"))
+                    {
+                        ifCommands.Add(commands[i]);
+                        i++;
+                    }
+
+                    if (EvaluateCondition(condition))
+                    {
+                        foreach (var cmd in ifCommands)
+                        {
+                            Console.WriteLine(cmd);
+                            ParseIndividualCommand(cmd, canvas, pen);
+                        }
+                    }
+
                 }
                 else
                 {
@@ -342,6 +362,10 @@ namespace ASE_Assignment
             else if (commandParts[0] == "endwhile")
             {
                 Console.WriteLine("endwhile called");
+            }
+            else if (commandParts[0] == "endif")
+            {
+                Console.WriteLine("endif called");
             }
             else
             {
