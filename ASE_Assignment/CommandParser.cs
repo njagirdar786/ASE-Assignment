@@ -187,6 +187,7 @@ namespace ASE_Assignment
         private void ParseIndividualCommand(string command, Canvass canvas, Pen pen)
         {
             string[] commandParts = command.Split(' ');
+            
 
             if(commandParts.Length == 0 )
             {
@@ -399,6 +400,23 @@ namespace ASE_Assignment
             {
                 Console.WriteLine("endif called");
             }
+            else if (commandParts[0] == "call")
+            {
+                string methodName = command.Substring(5);
+                Console.WriteLine(methodName);
+
+                if(Methods.ContainsKey(methodName))
+                {
+                    foreach (var cmd in Methods[methodName])
+                    {
+                        ParseIndividualCommand(cmd, canvas, pen);
+                    }
+                } 
+                else
+                {
+                    throw new GPLexceptions.InvalidCommandException(methodName + " does not exist");
+                }
+            } 
             else
             {
                 throw new GPLexceptions.InvalidCommandException("Unknown command: " + commandParts[0]);
