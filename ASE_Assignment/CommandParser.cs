@@ -155,7 +155,7 @@ namespace ASE_Assignment
 
                     string[] commandParts = commands[i].Split(' ');
 
-                    string methodName = commands[i].Substring(7);
+                    string methodName = commandParts[1];
                     List<string> methodCommands = new List<string>();
                     List<string> methodParams = new List<string>();
 
@@ -422,7 +422,7 @@ namespace ASE_Assignment
             }
             else if (commandParts[0] == "call")
             {
-                string methodName = command.Substring(5);
+                string methodName = commandParts[1];
                 Console.WriteLine(methodName);
 
                 if(Methods.ContainsKey(methodName))
