@@ -429,10 +429,10 @@ namespace ASE_Assignment
                 {
                     foreach (var cmd in Methods[methodName])
                     {
-                        List<string> givenParams = commandParts.Skip(2).ToList();
                         string replacedCmd = cmd;
                         if (MethodsWithParams.ContainsKey(methodName))
                         {
+                            List<string> givenParams = commandParts.Skip(2).ToList();
                             for (int i = 0; i < MethodsWithParams[methodName].Count; i++)
                             {
                                 replacedCmd = replacedCmd.Replace(MethodsWithParams[methodName][i], givenParams[i]);
@@ -441,6 +441,10 @@ namespace ASE_Assignment
                         }
                         ParseIndividualCommand(replacedCmd, canvas, pen);
                     }
+                }
+                else
+                {
+                    throw new GPLexceptions.InvalidCommandException(methodName + " - this method does not exist");
                 }
             }
             else
