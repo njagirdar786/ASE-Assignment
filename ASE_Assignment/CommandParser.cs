@@ -178,10 +178,10 @@ namespace ASE_Assignment
                         Methods[methodName] = methodCommands;
                         MethodsWithParams[methodName] = methodParams;
 
-                        foreach(var p in methodParams)
+/*                        foreach(var p in methodParams)
                         {
                             Console.WriteLine(p);
-                        }
+                        }*/
                     } 
                     else
                     {
@@ -392,17 +392,17 @@ namespace ASE_Assignment
                     {
                         Variables[varName] = varValue;
                     }
-                    else{
+                    else {
                         int expressionValue = EvaluateExpression(expression);
                         Variables[varName] = expressionValue;
                     }
-                } catch(Exception ex)
+                } catch (Exception ex)
                 {
                     throw new GPLexceptions.InvalidParameterException("invalid value for variable.");
                 }
-                
 
-                
+
+
 
             }
             else if (commandParts[0] == "vars")
@@ -423,35 +423,26 @@ namespace ASE_Assignment
             else if (commandParts[0] == "call")
             {
                 string methodName = commandParts[1];
-                Console.WriteLine(methodName);
+                //Console.WriteLine(methodName);
 
-                if(Methods.ContainsKey(methodName))
+                if (Methods.ContainsKey(methodName))
                 {
                     foreach (var cmd in Methods[methodName])
                     {
-                        ParseIndividualCommand(cmd, canvas, pen);
-                    }
-                }
-                else if((Methods.ContainsKey(methodName) && MethodsWithParams.ContainsKey(methodName)))
-                {
-                    List<string> methodParams = MethodsWithParams[methodName];
-                    List<string> givenParams = commandParts.Skip(2).ToList();
-
-                    foreach (var cmd in Methods[methodName])
-                    {
+                        List<string> givenParams = commandParts.Skip(2).ToList();
                         string replacedCmd = cmd;
-                        for (int i = 0; i < methodParams.Count; i++){
-                            replacedCmd = replacedCmd.Replace(methodParams[i], givenParams[i]);
+                        if (MethodsWithParams.ContainsKey(methodName))
+                        {
+                            for (int i = 0; i < MethodsWithParams[methodName].Count; i++)
+                            {
+                                replacedCmd = replacedCmd.Replace(MethodsWithParams[methodName][i], givenParams[i]);
+                                Console.WriteLine(replacedCmd);
+                            }
                         }
                         ParseIndividualCommand(replacedCmd, canvas, pen);
                     }
-
                 }
-                else
-                {
-                    throw new GPLexceptions.InvalidCommandException(methodName + " does not exist");
-                }
-            } 
+            }
             else
             {
                 throw new GPLexceptions.InvalidCommandException("Unknown command: " + commandParts[0]);
