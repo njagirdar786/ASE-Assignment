@@ -431,7 +431,11 @@ namespace ASE_Assignment
                     {
                         ParseIndividualCommand(cmd, canvas, pen);
                     }
-                } 
+                }
+                else if((Methods.ContainsKey(methodName) && MethodsWithParams.ContainsKey(methodName)))
+                {
+                    //execute method with parameters
+                }
                 else
                 {
                     throw new GPLexceptions.InvalidCommandException(methodName + " does not exist");
