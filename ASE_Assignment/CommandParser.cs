@@ -434,7 +434,18 @@ namespace ASE_Assignment
                 }
                 else if((Methods.ContainsKey(methodName) && MethodsWithParams.ContainsKey(methodName)))
                 {
-                    //execute method with parameters
+                    List<string> methodParams = MethodsWithParams[methodName];
+                    List<string> givenParams = commandParts.Skip(2).ToList();
+
+                    foreach (var cmd in Methods[methodName])
+                    {
+                        string replacedCmd = cmd;
+                        for (int i = 0; i < methodParams.Count; i++){
+                            replacedCmd = replacedCmd.Replace(methodParams[i], givenParams[i]);
+                        }
+                        ParseIndividualCommand(replacedCmd, canvas, pen);
+                    }
+
                 }
                 else
                 {
