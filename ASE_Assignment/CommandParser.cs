@@ -28,7 +28,8 @@ namespace ASE_Assignment
         private Dictionary<string, int> Variables = new Dictionary<string, int>();
 
         private Dictionary<string, List<string>> Methods = new Dictionary<string, List<string>>();
-        
+        private Dictionary<string, List<string>> MethodsWithParams = new Dictionary<string, List<string>>();
+
 
         private int checkVarOrValue(string varOrValue)
         {
@@ -152,8 +153,11 @@ namespace ASE_Assignment
                 }
                 else if (commands[i].StartsWith("method")){
 
+                    string[] commandParts = commands[i].Split(' ');
+
                     string methodName = commands[i].Substring(7);
                     List<string> methodCommands = new List<string>();
+                    List<string> methodParams = new List<string>();
 
                     i++;
                     while (!commands[i].StartsWith("endmethod"))
@@ -166,7 +170,23 @@ namespace ASE_Assignment
                         }
                     }
 
-                    Methods[methodName] = methodCommands;
+                    
+
+                    if (commandParts.Length > 2)
+                    {
+                        methodParams = commandParts.Skip(2).ToList();
+                        Methods[methodName] = methodCommands;
+                        MethodsWithParams[methodName] = methodParams;
+
+                        foreach(var p in methodParams)
+                        {
+                            Console.WriteLine(p);
+                        }
+                    } 
+                    else
+                    {
+                        Methods[methodName] = methodCommands;
+                    }
 
                 }
                 else
