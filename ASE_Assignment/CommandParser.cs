@@ -19,7 +19,7 @@ namespace ASE_Assignment
         bool fill = false;
 
         // Test method for checking if fill is true or false
-        public bool isFilled()
+        public bool IsFilled()
         {
             return fill;
         }
@@ -39,7 +39,7 @@ namespace ASE_Assignment
         /// <param name="varOrValue">String to check if it is a variabe or value.</param>
         /// <returns>The value from the variable or the value itself.</returns>
         /// <exception cref="GPLexceptions.InvalidParameterException">Exception when string is not a valid variable or value.</exception>
-        private int checkVarOrValue(string varOrValue)
+        private int CheckVarOrValue(string varOrValue)
         {
             if (Variables.ContainsKey(varOrValue))
             {
@@ -66,9 +66,9 @@ namespace ASE_Assignment
         {
             string[] conditionParts = condition.Split(' ');
             
-            int var1 = checkVarOrValue((string)conditionParts[0]);
+            int var1 = CheckVarOrValue((string)conditionParts[0]);
             string comparator = conditionParts[1];
-            int var2 = checkVarOrValue((string)conditionParts[2]);
+            int var2 = CheckVarOrValue((string)conditionParts[2]);
 
             switch (comparator)
             {
@@ -240,7 +240,7 @@ namespace ASE_Assignment
                     throw new GPLexceptions.InvalidCommandException("invalid number of paramters for circle command");
                 }
 
-                int radius = checkVarOrValue(commandParts[1]);
+                int radius = CheckVarOrValue(commandParts[1]);
 
                 if (radius <= 0)
                 {
@@ -258,8 +258,8 @@ namespace ASE_Assignment
                     throw new GPLexceptions.InvalidCommandException("invalid number of paramters for rectangle command");
                 }
 
-                int width = checkVarOrValue(commandParts[1]);
-                int height = checkVarOrValue(commandParts[2]);
+                int width = CheckVarOrValue(commandParts[1]);
+                int height = CheckVarOrValue(commandParts[2]);
 
                 if (width <= 0 || height <= 0)
                 {
@@ -276,8 +276,8 @@ namespace ASE_Assignment
                     throw new GPLexceptions.InvalidCommandException("invalid number of paramters for triangle command");
                 }
 
-                int width = checkVarOrValue(commandParts[1]);
-                int height = checkVarOrValue(commandParts[2]);
+                int width = CheckVarOrValue(commandParts[1]);
+                int height = CheckVarOrValue(commandParts[2]);
 
                 if (width <= 0 || height <= 0)
                 {
@@ -295,8 +295,8 @@ namespace ASE_Assignment
                     throw new GPLexceptions.InvalidCommandException("invalid number of paramters for moveTo command");
                 }
 
-                int x = checkVarOrValue(commandParts[1]);
-                int y = checkVarOrValue(commandParts[2]);
+                int x = CheckVarOrValue(commandParts[1]);
+                int y = CheckVarOrValue(commandParts[2]);
 
                 if (x <= 0 || y <= 0)
                 {
@@ -313,8 +313,8 @@ namespace ASE_Assignment
                     throw new GPLexceptions.InvalidCommandException("invalid number of paramters for drawLine command");
                 }
 
-                int x = checkVarOrValue(commandParts[1]);
-                int y = checkVarOrValue(commandParts[2]);
+                int x = CheckVarOrValue(commandParts[1]);
+                int y = CheckVarOrValue(commandParts[2]);
 
                 if (x <= 0 || y <= 0)
                 {

@@ -135,7 +135,7 @@ namespace GPLTests
             Canvass canvas = new Canvass(p, 313, 393);
             CommandParser cp = new CommandParser(command, canvas, p);
 
-            Assert.IsTrue(cp.isFilled());
+            Assert.IsTrue(cp.IsFilled());
         }
     }
 }
