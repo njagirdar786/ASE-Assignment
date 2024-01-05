@@ -156,5 +156,39 @@ namespace GPLTests
             Assert.AreEqual(10, canvas.GetShapes().Count);
         }
 
+        /// <summary>
+        /// Test for variable.
+        /// </summary>
+        [TestMethod]
+        public void variableTest()
+        {
+            string command = "var x = 30" + Environment.NewLine +
+                             "circle x";
+            Pen p = new Pen(Color.Black, 2);
+            Canvass canvas = new Canvass(p, 313, 393);
+            CommandParser cp = new CommandParser(command, canvas, p);
+
+            Assert.AreEqual(1, canvas.GetShapes().Count);
+            Circle circle1 = (Circle)canvas.GetShapes()[0];
+            Assert.AreEqual(30, circle1.GetRadius());
+        }
+
+        /// <summary>
+        /// Test for variable expressions.
+        /// </summary>
+        [TestMethod]
+        public void variableExpressionTest()
+        {
+            string command = "var x = 30" + Environment.NewLine +
+                             "var y = x * 10" + Environment.NewLine +
+                             "circle y";
+            Pen p = new Pen(Color.Black, 2);
+            Canvass canvas = new Canvass(p, 313, 393);
+            CommandParser cp = new CommandParser(command, canvas, p);
+
+            Assert.AreEqual(1, canvas.GetShapes().Count);
+            Circle circle1 = (Circle)canvas.GetShapes()[0];
+            Assert.AreEqual(300, circle1.GetRadius());
+        }
     }
 }
