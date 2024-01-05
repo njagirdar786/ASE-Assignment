@@ -27,10 +27,18 @@ namespace ASE_Assignment
         //Dictionary to store variables, key -> value pairs
         private Dictionary<string, int> Variables = new Dictionary<string, int>();
 
+        //Dictionairy to store Methods and their commands 
         private Dictionary<string, List<string>> Methods = new Dictionary<string, List<string>>();
+
+        //Dictionairy to store Method parameters
         private Dictionary<string, List<string>> MethodsWithParams = new Dictionary<string, List<string>>();
 
-
+        /// <summary>
+        /// Checks if given string is a variable within the variables dictionairy or if it is a valid integer.
+        /// </summary>
+        /// <param name="varOrValue">String to check if it is a variabe or value.</param>
+        /// <returns>The value from the variable or the value itself.</returns>
+        /// <exception cref="GPLexceptions.InvalidParameterException">Exception when string is not a valid variable or value.</exception>
         private int checkVarOrValue(string varOrValue)
         {
             if (Variables.ContainsKey(varOrValue))
@@ -48,6 +56,12 @@ namespace ASE_Assignment
             }
         }
 
+        /// <summary>
+        /// Evaluates condition expressions for while loops and if statements.
+        /// </summary>
+        /// <param name="condition">The condition expression to evaluate.</param>
+        /// <returns>The result of the condiition evaluation.</returns>
+        /// <exception cref="GPLexceptions.InvalidCommandException">Exception when the comparitor is invalid.</exception>
         private bool EvaluateCondition(string condition)
         {
             string[] conditionParts = condition.Split(' ');
@@ -71,6 +85,11 @@ namespace ASE_Assignment
 
         }
 
+        /// <summary>
+        /// Evaluates mathimatical expressions for variables.
+        /// </summary>
+        /// <param name="expression">The mathematical expression to be evaluated.</param>
+        /// <returns>The result of the mathematical expression.</returns>
         private int EvaluateExpression(string expression)
         {
             foreach (var v in Variables)
