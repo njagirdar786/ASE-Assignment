@@ -137,5 +137,24 @@ namespace GPLTests
 
             Assert.IsTrue(cp.IsFilled());
         }
+
+        /// <summary>
+        /// Test for while loop.
+        /// </summary>
+        [TestMethod]
+        public void whileLoopTest()
+        {
+            string command = "var x = 0" + Environment.NewLine +
+                             "while x < 10" + Environment.NewLine +
+                             "circle 20" + Environment.NewLine +
+                             "var x = x + 1" + Environment.NewLine +
+                             "endwhile";
+            Pen p = new Pen(Color.Black, 2);
+            Canvass canvas = new Canvass(p, 313, 393);
+            CommandParser cp = new CommandParser(command, canvas, p);
+
+            Assert.AreEqual(10, canvas.GetShapes().Count);
+        }
+
     }
 }
