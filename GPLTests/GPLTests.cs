@@ -188,7 +188,60 @@ namespace GPLTests
 
             Assert.AreEqual(1, canvas.GetShapes().Count);
             Circle circle1 = (Circle)canvas.GetShapes()[0];
+            Assert.IsNotNull(circle1);
             Assert.AreEqual(300, circle1.GetRadius());
+        }
+
+        /// <summary>
+        /// Test for if commands.
+        /// </summary>
+        [TestMethod]
+        public void ifCommandTest()
+        {
+            string command = "var x = 10" + Environment.NewLine +
+                             "if x == 10" + Environment.NewLine +
+                             "circle 20" + Environment.NewLine +
+                             "endif";
+            Pen p = new Pen(Color.Black, 2);
+            Canvass canvas = new Canvass(p, 313, 393);
+            CommandParser cp = new CommandParser(command, canvas, p);
+
+            Assert.AreEqual(1, canvas.GetShapes().Count);
+        }
+
+        /// <summary>
+        /// Test for methods.
+        /// </summary>
+        [TestMethod]
+        public void methodsTest()
+        {
+            string command = "method drawShapes x y" + Environment.NewLine +
+                             "circle x" + Environment.NewLine +
+                             "triangle x y" + Environment.NewLine +
+                             "rectangle x y" + Environment.NewLine +
+                             "endmethod" + Environment.NewLine +
+                             "call drawShapes 100 70";
+            Pen p = new Pen(Color.Black, 2);
+            Canvass canvas = new Canvass(p, 313, 393);
+            CommandParser cp = new CommandParser(command, canvas, p);
+
+            Assert.AreEqual(3, canvas.GetShapes().Count);
+
+            Circle circle1 = (Circle)canvas.GetShapes()[0];
+            Assert.IsNotNull(circle1);
+            Assert.AreEqual(100, circle1.GetRadius());
+
+            Triangle triangle = (Triangle)canvas.GetShapes()[1];
+            Assert.IsNotNull(triangle);
+            Assert.AreEqual(100, triangle.GetWidth());
+            Assert.AreEqual(70, triangle.GetHeight());
+
+            ASE_Assignment.Rectangle rect = (ASE_Assignment.Rectangle)canvas.GetShapes()[2];
+            Assert.IsNotNull(rect);
+            Assert.AreEqual(100, rect.GetWidth());
+            Assert.AreEqual(70, rect.GetHeight());
+
+
         }
     }
 }

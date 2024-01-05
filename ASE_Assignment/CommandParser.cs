@@ -188,9 +188,6 @@ namespace ASE_Assignment
                             throw new GPLexceptions.InvalidCommandException("Missing endmethod for method command");
                         }
                     }
-
-                    
-
                     if (commandParts.Length > 2)
                     {
                         methodParams = commandParts.Skip(2).ToList();
