@@ -44,23 +44,17 @@ namespace ASE_Assignment
             }
 
             
-            try
-            {
                 // Parse and execute the command using CommandParser
                 CommandParser cp = new CommandParser(command, canvas, pen);
                 Bitmap myBitmap = canvas.GetBitmap();
                 pictureBox1.Image = myBitmap;
                 singleTextBox.Clear();
-            }
-            //Exception handling
-            catch (GPLexceptions.InvalidCommandException ex)
-            {
-                MessageBox.Show("Command Error: " + ex.Message);
-            }
-            catch (GPLexceptions.InvalidParameterException ex)
-            {
-                MessageBox.Show("Parameter Error: " + ex.Message);
-            }
+                //Exception handling
+                List<String> errors = cp.GetErrors();
+                if (errors.Count > 0)
+                {
+                    MessageBox.Show("::::Errors in the program:::: " + Environment.NewLine + string.Join(Environment.NewLine, errors));
+                }
 
         }
         /// <summary>
