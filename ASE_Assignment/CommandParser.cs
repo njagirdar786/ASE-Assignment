@@ -246,6 +246,8 @@ namespace ASE_Assignment
         private void ParseIndividualCommand(string command, Canvass canvas, Pen pen, int lineNumber)
         {
             string[] commandParts = command.Split(' ');
+
+            ShapeFactory sf = new ShapeFactory();
             
             try { 
                 if(commandParts.Length == 0 )
@@ -267,7 +269,7 @@ namespace ASE_Assignment
                         throw new GPLexceptions.InvalidParameterException("radius must be a positive integer");
                     }
 
-                    Shape circle = new Circle(pen.Color, 10, 10, radius);
+                    Shape circle = sf.CreateShape("circle", pen.Color, 10, 10, radius);
                     canvas.DrawShape(circle, fill);
                 }
                 else if (commandParts[0] == "rectangle")
@@ -286,7 +288,7 @@ namespace ASE_Assignment
                         throw new GPLexceptions.InvalidParameterException("rectangle width and height must be a positive integers");
                     }
 
-                    Shape rectangle = new Rectangle(pen.Color, 10, 10, width, height);
+                    Shape rectangle = sf.CreateShape("rectangle", pen.Color, 10, 10, width, height);
                     canvas.DrawShape(rectangle, fill);
                 }
                 else if (commandParts[0] == "triangle")
@@ -304,7 +306,7 @@ namespace ASE_Assignment
                         throw new GPLexceptions.InvalidParameterException("triangle width and height must be a positive integers");
                     }
 
-                    Shape triangle = new Triangle(pen.Color, 10, 10, width, height);
+                    Shape triangle = sf.CreateShape("triangle", pen.Color, 10, 10, width, height);
                     canvas.DrawShape(triangle, fill);
                 }
                 else if (commandParts[0] == "moveTo")
