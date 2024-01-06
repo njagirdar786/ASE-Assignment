@@ -60,7 +60,7 @@ namespace GPLTests
             Assert.AreEqual(50, rect.GetHeight());
         }
 
-        /// <summary>
+        /*/// <summary>
         /// Test for parsing an invalid command.
         /// </summary>
         [TestMethod]
@@ -74,9 +74,9 @@ namespace GPLTests
             {
                 CommandParser cp = new CommandParser(command, canvas, p);
             });       
-        }
+        }*/
 
-        /// <summary>
+        /*/// <summary>
         /// Test for parsing invalid parameter.
         /// </summary>
         [TestMethod]
@@ -90,7 +90,7 @@ namespace GPLTests
             {
                 CommandParser cp = new CommandParser(command, canvas, p);
             });
-        }
+        }*/
 
         /// <summary>
         /// Test for parsing moveTo command.
@@ -207,6 +207,23 @@ namespace GPLTests
             CommandParser cp = new CommandParser(command, canvas, p);
 
             Assert.AreEqual(1, canvas.GetShapes().Count);
+        }
+
+        /// <summary>
+        /// Test for syntax checking.
+        /// </summary>
+        [TestMethod]
+        public void syntaxTest()
+        {
+            string command = "retan 40 60" + Environment.NewLine +
+                             "moveTo 100";
+            Pen p = new Pen(Color.Black, 2);
+            Canvass canvas = new Canvass(p, 313, 393);
+            CommandParser cp = new CommandParser(command, canvas, p);
+
+            Assert.AreEqual(2, cp.GetErrors().Count);
+            Assert.IsTrue(cp.GetErrors().Contains("line 0: Unknown command: retan"));
+            Assert.IsTrue(cp.GetErrors().Contains("line 1: invalid number of paramters for moveTo command"));
         }
 
         /// <summary>

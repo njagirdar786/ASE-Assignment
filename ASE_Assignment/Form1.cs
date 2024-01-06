@@ -53,6 +53,10 @@ namespace ASE_Assignment
                 List<String> errors = cp.GetErrors();
                 if (errors.Count > 0)
                 {
+                foreach (var error in errors)
+                {
+                    Console.WriteLine(error);
+                }
                     MessageBox.Show("::::Errors in the program:::: " + Environment.NewLine + string.Join(Environment.NewLine, errors));
                 }
 
