@@ -24,8 +24,13 @@ namespace ASE_Assignment
             return fill;
         }
 
+        //collects all error messages from caught exceptions.
         List<string> errors = new List<string>(); 
 
+        /// <summary>
+        /// Retrieves errors in the program.
+        /// </summary>
+        /// <returns>A list containing error messages.</returns>
         public List<string> GetErrors()
         {
             return errors;
