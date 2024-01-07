@@ -34,6 +34,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
+            this.multiTextBox2 = new System.Windows.Forms.TextBox();
+            this.runBoth = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,11 +94,31 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
+            // multiTextBox2
+            // 
+            this.multiTextBox2.Location = new System.Drawing.Point(696, 52);
+            this.multiTextBox2.Multiline = true;
+            this.multiTextBox2.Name = "multiTextBox2";
+            this.multiTextBox2.Size = new System.Drawing.Size(295, 272);
+            this.multiTextBox2.TabIndex = 6;
+            // 
+            // runBoth
+            // 
+            this.runBoth.Location = new System.Drawing.Point(696, 347);
+            this.runBoth.Name = "runBoth";
+            this.runBoth.Size = new System.Drawing.Size(295, 23);
+            this.runBoth.TabIndex = 7;
+            this.runBoth.Text = "Submit Both";
+            this.runBoth.UseVisualStyleBackColor = true;
+            this.runBoth.Click += new System.EventHandler(this.runBoth_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 436);
+            this.ClientSize = new System.Drawing.Size(1003, 436);
+            this.Controls.Add(this.runBoth);
+            this.Controls.Add(this.multiTextBox2);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.openBtn);
             this.Controls.Add(this.pictureBox1);
@@ -119,6 +141,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button openBtn;
         private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.TextBox multiTextBox2;
+        private System.Windows.Forms.Button runBoth;
     }
 }
 
