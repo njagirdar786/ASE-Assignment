@@ -98,10 +98,5 @@ namespace ASE_Assignment
             }
 
         }
-
-        private void runBoth_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine(multiTextBox2.Text);
-        }
     }
 }

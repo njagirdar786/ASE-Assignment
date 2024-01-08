@@ -78,9 +78,9 @@ namespace ASE_Assignment
         {
             string[] conditionParts = condition.Split(' ');
             
-            int var1 = CheckVarOrValue((string)conditionParts[0]);
+            int var1 = CheckVarOrValue(conditionParts[0]);
             string comparator = conditionParts[1];
-            int var2 = CheckVarOrValue((string)conditionParts[2]);
+            int var2 = CheckVarOrValue(conditionParts[2]);
 
             switch (comparator)
             {
